@@ -1,0 +1,33 @@
+{
+  "name": "range-hf",
+  "version": "0.0.1",
+  "description": "Spreadsheet software range and cell helper functions",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/istareatscreens/range-hf.git"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "range",
+    "spreadsheet",
+    "cell",
+    "excel"
+  ],
+  "author": "Stephen Charbonneau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/istareatscreens/range-hf/issues"
+  },
+  "homepage": "https://github.com/istareatscreens/range-hf#readme",
+  "dependencies": {
+    "bb26-spreadsheet": "^1.1.6",
+    "eslint": "^6.8.0",
+    "prettier": "^1.19.1",
+    "ts-node": "^8.6.0",
+    "typescript": "^3.7.4"
+  }
+}
