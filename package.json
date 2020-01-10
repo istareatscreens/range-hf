@@ -4,7 +4,8 @@
   "description": "Spreadsheet software range and cell helper functions",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
@@ -27,8 +28,11 @@
     "bb26-spreadsheet": "^1.1.6"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.25",
     "eslint": "^6.8.0",
+    "jest": "^24.9.0",
     "prettier": "^1.19.1",
+    "ts-jest": "^24.3.0",
     "ts-node": "^8.6.0",
     "typescript": "^3.7.4"
   }

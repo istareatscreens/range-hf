@@ -1,70 +1,23 @@
 import { bb26Range } from "bb26-spreadsheet";
-
 /**
- * @param {string} address
- * @return {string[] | string}
+ * Takes in a range of cells in the form of a string and returns letters in an array
+ * @param {string} address Spreadsheet range in range format i.e. "A1:B2"
+ * @returns {string[]} string array containing cells associated with input cell i.e. ["A1", "A2", "B1", "B2"]
  */
-function rangeToCellArray(address: string, delimiter: string = ","): string[] {
-  //remove whitespace
-  address.replace(/\s/g, "");
-  //check conditions
-  if (address.includes(":") && address.includes(delimiter)) {
-    return returnIndividualCells(delineateAddress(address));
-    //address includes delimination and range address format
-  } else if (address.includes(":")) {
-    return returnIndividualCells(address);
-    //address includes just range
-  } else if (address.includes(delimiter)) {
-    return delineateAddress(address);
-    //address includes just delimiation
-  } else {
-    //single cell address
-    return [address];
-  }
-}
-
-/**
- * @param {string} address
- */
-export default function rangeSpread(
-  address: string,
-  delimiter: string = ","
-): string[] {
+export default function rangeSpread(address: string): string[] {
   //splits array into components Letter/Numbers
   let addressSplit: string[] = address.match(/[a-zA-Z]+|[0-9]+/g)!;
   //adds letter array to number array to produce all cells associated with range
   return alphanumericRecomposition(
     addressSplit[0] !== addressSplit[2]
-      ? appendEnd(
-          bb26Range(addressSplit[0], addressSplit[2]),
-          addressSplit[2]
-        ) /*append column letter*/
-      : [addressSplit[0]] /*return single letter*/,
+      ? bb26Range(addressSplit[0], addressSplit[2])
+      : [addressSplit[0]],
     range(Number(addressSplit[1]), Number(addressSplit[3]))
   );
 }
 
 /**
- * @param {string} address
- * @returns {string[]}
- */
-function delineateAddress(address: string) {
-  //removes comma
-  return address.split(/[ ,]+/);
-}
-
-function returnIndividualCells(address: string | any[]) {
-  if (Array.isArray(address)) {
-    //returns array of all cells, if array contains just a cell returns cell
-    return address.flatMap(range =>
-      !range.includes(":") ? range : rangeSpread(range)
-    );
-  } else {
-    return rangeSpread(address);
-  }
-}
-
-/**
+ * Determines if there are more letters than numbers or numbers than letters for recombination
  * @param {string[]} letArr
  * @param {number[]} numArr
  * @returns {string[]}
@@ -79,14 +32,14 @@ function alphanumericRecomposition(
     return getalphaNumbericRecomposition(letArr, numArr, true);
   }
 }
+
 /**
- *
+ * Recombines letters and strings to form cell addresses
  * @param {any[]} arr1
  * @param {any[]} arr2
  * @param {boolean} swap
  * @returns {string[]}
  */
-
 function getalphaNumbericRecomposition(
   arr1: number[] | string[],
   arr2: number[] | string[],
@@ -101,4 +54,21 @@ function getalphaNumbericRecomposition(
     );
   }
   return temp.flat(Infinity);
+}
+
+/**
+ * returns array of numbers from start to end inclusive
+ * @param {number} start first number
+ * @param {number} end last number
+ */
+function range(start: number, end: number = 0): number[] {
+  let total: number[] = [];
+  if (!end) {
+    end = start;
+    start = 0;
+  }
+  for (let i = start; i < end + 1; i += 1) {
+    total.push(i);
+  }
+  return total;
 }
