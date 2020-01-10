@@ -24,7 +24,9 @@
   },
   "homepage": "https://github.com/istareatscreens/range-hf#readme",
   "dependencies": {
-    "bb26-spreadsheet": "^1.1.6",
+    "bb26-spreadsheet": "^1.1.6"
+  },
+  "devDependencies": {
     "eslint": "^6.8.0",
     "prettier": "^1.19.1",
     "ts-node": "^8.6.0",
