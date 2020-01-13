@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
-    "tsc": "tsc"
+    "lint": "eslint src/*.ts",
+    "tsc": "tsc",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -30,10 +32,11 @@
   "devDependencies": {
     "@types/jest": "^24.0.25",
     "eslint": "^6.8.0",
+    "handlebars": "^4.7.1",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
     "ts-jest": "^24.3.0",
-    "ts-node": "^8.6.0",
+    "ts-node": "^8.6.1",
     "typescript": "^3.7.4"
   }
 }

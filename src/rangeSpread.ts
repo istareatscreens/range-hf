@@ -61,11 +61,12 @@ function getalphaNumbericRecomposition(
  * @param {number} start first number
  * @param {number} end last number
  */
-function range(start: number, end: number = 0): number[] {
+function range(start: number, end: number = 1): number[] {
   let total: number[] = [];
   if (!end) {
     end = start;
-    start = 0;
+    start = 1;
+  } else {
   }
   for (let i = start; i < end + 1; i += 1) {
     total.push(i);
