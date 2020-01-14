@@ -3,6 +3,7 @@ import { bb26Range } from "bb26-spreadsheet";
  * Takes in a range of cells in the form of a string and returns letters in an array
  * @param {string} address Spreadsheet range in range format i.e. "A1:B2"
  * @returns {string[]} string array containing cells associated with input cell i.e. ["A1", "A2", "B1", "B2"]
+ * @example rangeSpread("A1:B2") //returns ["A1", "A2", "B1", "B2"]
  */
 export default function rangeSpread(address: string): string[] {
   address = address.replace(/\s/g, "");
@@ -19,14 +20,14 @@ export default function rangeSpread(address: string): string[] {
 
 /**
  * Determines if there are more letters than numbers or numbers than letters for recombination
- * @param {string[]} letArr
- * @param {number[]} numArr
- * @returns {string[]}
+ * @param {string[]} letArr number or string array
+ * @param {number[]} numArr number or string array
+ * @returns {string[]} returns array of cell addresses
  */
 function alphanumericRecomposition(
   letArr: string[] | number[],
   numArr: string[] | number[]
-) {
+): string[] {
   if (letArr.length > numArr.length) {
     return getalphaNumbericRecomposition(numArr, letArr, false);
   } else {
@@ -36,10 +37,10 @@ function alphanumericRecomposition(
 
 /**
  * Recombines letters and strings to form cell addresses
- * @param {any[]} arr1
- * @param {any[]} arr2
- * @param {boolean} swap
- * @returns {string[]}
+ * @param {any[]} arr1 number or string array
+ * @param {any[]} arr2 number or string array
+ * @param {boolean} swap used to correct for larger array
+ * @returns {string[]} returns array of cell addresses
  */
 function getalphaNumbericRecomposition(
   arr1: number[] | string[],
@@ -60,7 +61,9 @@ function getalphaNumbericRecomposition(
 /**
  * returns array of numbers from start to end inclusive
  * @param {number} start first number
- * @param {number} end last number
+ * @param {number} end last numbe
+ * @returns {number[]} returns a range of numbers inclusively
+ * @example range(1,5) //returns 1,2,3,4,5
  */
 function range(start: number, end: number): number[] {
   let total: number[] = [];

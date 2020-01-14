@@ -14,10 +14,12 @@ export default function delimRangeSpread(
   address = address.replace(/\s/g, "");
   //check conditions
   if (address.includes(":") && address.includes(delimiter)) {
-    return returnIndividualCells(delineateAddress(address, delimiter));
+    return <string[]>(
+      returnIndividualCells(delineateAddress(address, delimiter))
+    );
     //address includes delimination and range address format
   } else if (address.includes(":")) {
-    return returnIndividualCells(address);
+    return <string[]>returnIndividualCells(address);
     //address includes just range
   } else if (address.includes(delimiter)) {
     return delineateAddress(address, delimiter);
@@ -27,9 +29,13 @@ export default function delimRangeSpread(
     return [address];
   }
 }
+/**
+ * returns array of all cells, if array contains just a cell returns cell
+ * @param address {string | string[]} takes in a string i.e. "A2" or ["A1:A2"]
+ * @returns {string|string[]} returns array of cells i.e. ["A1", "A2"]
+ */
 
-//returns array of all cells, if array contains just a cell returns cell
-function returnIndividualCells(address: string | string[]) {
+function returnIndividualCells(address: string | string[]): string | string[] {
   if (Array.isArray(address)) {
     return address.flatMap(range =>
       !range.includes(":") ? range : rangeSpread(range)
@@ -41,9 +47,9 @@ function returnIndividualCells(address: string | string[]) {
 
 /**
  * deliminates string
- * @param {string} address
- * @param {string} delimiter
- * @returns {string[]}
+ * @param {string} address takes in deliminated address
+ * @param {string} delimiter custom deliminator defaults to ","
+ * @returns {string[]} returns array of cells
  */
 function delineateAddress(address: string, delimiter: string) {
   let pattern = new RegExp("\\" + delimiter + "\\s*");
