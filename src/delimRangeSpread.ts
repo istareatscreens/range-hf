@@ -4,7 +4,9 @@ import rangeSpread from "./rangeSpread";
  * returns all cells associated with a delimited string in spreadsheet notation
  * @param {string} address delimited string containing cell and range addresses i.e "A1, A1:AC33"
  * @param {string} delimiter "custom delimiter, defaults to delimiter = ","
- * @return {string[] | string}
+ * @return {string[] | string} returns an array of cells
+ * @example delimRangeSpread("A1, B2:C3"); // returns ["A1", "B2", "B3" "C2", "C3"]
+ * @example delimRangeSpread("A1:B2|A2:B2", "|"); //returns ["A1", "B1", "B2", "A2"]
  */
 export default function delimRangeSpread(
   address: string,

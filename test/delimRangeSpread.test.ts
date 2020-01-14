@@ -127,5 +127,8 @@ describe("delimRangeSpread", () => {
     expect(new Set(delimRangeSpread("C1:C3|C4|B5", "|"))).toEqual(
       new Set(["C1", "C2", "C3", "C4", "B5"])
     );
+    expect(new Set(delimRangeSpread("C1:C3|C3|C1|C2:C3", "|"))).toEqual(
+      new Set(["C1", "C2", "C3"])
+    );
   });
 });
