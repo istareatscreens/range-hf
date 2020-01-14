@@ -3,8 +3,8 @@ import { bb26Range } from "bb26-spreadsheet";
  * Takes in a range of cells in the form of a string and returns letters in an array
  * @param {string} address Spreadsheet range in range format i.e. "A1:B2"
  * @returns {string[]} string array containing cells associated with input cell i.e. ["A1", "A2", "B1", "B2"]
- * @example rangeSpread("A1:B2") //returns ["A1", "A2", "B1", "B2"]
- * @example rangeSpread("C") //returns ["A", "B", "C"]
+ * @example rangeSpread("A1:B2"); //returns ["A1", "A2", "B1", "B2"]
+ * @example rangeSpread("C"); //returns ["A", "B", "C"]
  */
 export default function rangeSpread(address: string): string[] {
   address = address.replace(/\s/g, "");

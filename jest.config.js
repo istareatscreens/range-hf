@@ -9,5 +9,6 @@ module.exports = {
       statements: 80
     }
   },
+  collectCoverage: true,
   coverageReporters: ["json", "lcovonly", "text", "clover"]
 };
