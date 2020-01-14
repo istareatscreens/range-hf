@@ -12,7 +12,25 @@ describe("rangeSpread", () => {
     expect(new Set(rangeSpread("A9:B10"))).toEqual(
       new Set(["A9", "B9", "A10", "B10"])
     );
+    expect(new Set(rangeSpread("A9:A10"))).toEqual(new Set(["A9", "A10"]));
+    expect(new Set(rangeSpread("B9:B12"))).toEqual(
+      new Set(["B9", "B10", "B11", "B12"])
+    );
 
+    expect(new Set(rangeSpread("A1:A1"))).toEqual(new Set(["A1"]));
+    expect(new Set(rangeSpread("B2:B2"))).toEqual(new Set(["B2"]));
+
+    expect(new Set(rangeSpread("B9:B9"))).toEqual(new Set(["B9"]));
+    expect(new Set(rangeSpread("A5"))).toEqual(
+      new Set(["A1", "A2", "A3", "A4", "A5"])
+    );
+    //testing white space
+    expect(new Set(rangeSpread(" A5"))).toEqual(
+      new Set(["A1", "A2", "A3", "A4", "A5"])
+    );
+    expect(new Set(rangeSpread("A5 "))).toEqual(
+      new Set(["A1", "A2", "A3", "A4", "A5"])
+    );
     expect(new Set(rangeSpread("A5"))).toEqual(
       new Set(["A1", "A2", "A3", "A4", "A5"])
     );

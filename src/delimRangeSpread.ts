@@ -11,7 +11,7 @@ export default function delimRangeSpread(
   delimiter: string = ","
 ): string[] {
   //remove whitespace
-  address.replace(/\s/g, "");
+  address = address.replace(/\s/g, "");
   //check conditions
   if (address.includes(":") && address.includes(delimiter)) {
     return returnIndividualCells(delineateAddress(address, delimiter));
@@ -46,6 +46,6 @@ function returnIndividualCells(address: string | string[]) {
  * @returns {string[]}
  */
 function delineateAddress(address: string, delimiter: string) {
-  //removes comma
-  return address.split(/[ ${delimiter}]+/);
+  let pattern = new RegExp("\\" + delimiter + "\\s*");
+  return address.split(pattern);
 }

@@ -5,7 +5,8 @@ import { bb26Range } from "bb26-spreadsheet";
  * @returns {string[]} string array containing cells associated with input cell i.e. ["A1", "A2", "B1", "B2"]
  */
 export default function rangeSpread(address: string): string[] {
-  //splits array into components Letter/Numbers
+  address = address.replace(/\s/g, "");
+  //splits array into components Letter/Numbers\
   let addressSplit: string[] = address.match(/[a-zA-Z]+|[0-9]+/g)!;
   //adds letter array to number array to produce all cells associated with range
   return alphanumericRecomposition(
@@ -61,7 +62,7 @@ function getalphaNumbericRecomposition(
  * @param {number} start first number
  * @param {number} end last number
  */
-function range(start: number, end: number = 1): number[] {
+function range(start: number, end: number): number[] {
   let total: number[] = [];
   if (!end) {
     end = start;
