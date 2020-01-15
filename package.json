@@ -1,7 +1,7 @@
 {
   "name": "range-hf",
   "version": "1.0.0",
-  "description": "Spreadsheet software range and cell helper functions",
+  "description": "JavaScript utilities for the purpose of simplifying manipulation of cells and ranges in spreadsheet software (i.e. Excel).",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
