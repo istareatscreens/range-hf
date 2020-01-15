@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=javascript&amp;skin=sunburst"></script>
+    <title>range-hf API Documentation</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <script>
+      var prevScrollpos = window.pageYOffset;
+      window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+          document.getElementById("navbar").style.top = "0";
+        } else {
+          document.getElementById("navbar").style.top = "-500px";
+        }
+        prevScrollpos = currentScrollPos;
+      };
+    </script>
+  </head>
+  <body>
+    <div class="page">
+      <!--NavBar-->
+      <div id="navbar">
+        <p class="nav-title">bb26-spreadsheet</p>
+        <div class="nav-menu">
+          <a href="#delimRangeSpread"></a>delimRangeSpread</a>
+          <a href="#rangeSpread">rangeSpread</a>
+          <a href="#isInRange">isInRange</a>
+        </div>
+      </div>
+
+      <!--Content section-->
+      <div class="content-container">
+        <div class="card" id="delimRangeSpread">
+          <div class="card-content">
+            <h2 class="card-title">delimRangeSpread(input: string, deliminater: string = ",":): string[]</h2>
+            <p class="code-description">
+              The delimRangeSpread function takes in a deliminated string
+              of ranges and cells and returns an unique member array of all cells
+               and cells associated with ranges provided by the input. The delimiter defaults to "," 
+               but can be specified.
+            </p>
+            <div class="code-container">
+              <pre class="prettyprint code-block">
+import delimRangeSpread from 'range-hf';
+
+let arrayOfCells = delimRangeSpread("A2:B3|C3", "|");
+let arrayOfCellsWDelim = delimRangeSpread("AA1, A2:B3, C3, C2:C4");
+console.log(arrayOfCells);
+
+//returns ["AA1", "A2", "A3", "B2", "B3", "C3", "C2", "C4"];
+console.log(arrayOfCellsWDelim);
+//returns ["A2", "A3", "B2", "B3", "C3"]
+
+  </pre>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="rangeSpread">
+          <div class="card-content">
+            <h2 class="card-title">rangeSpread(input: string): string</h2>
+            <p class="code-description">
+              The rangeSpread function returns an array of strings representing all member cells of a range
+            </p>
+            <div class="code-container">
+              <pre class="prettyprint code-block">
+import rangeSpread from 'range-hf';
+
+let spreadRange = rangeSpread("Z1:AA2");
+console.log(spreadRange);
+//returns ["Z1", "Z2", "AA1", "AA2"]
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="isInRange">
+          <div class="card-content">
+            <h2 class="card-title">
+              isInRange(cell: string, range: string): boolean
+            </h2>
+            <p class="code-description">
+              The isInRange function checks to see if a cell is a member of a range
+            </p>
+            <div class="code-container">
+              <pre class="prettyprint code-block">
+          import isInRange from 'bb26-spreadsheet';
+
+          let cellCheck = isInRange("C1", "A1:D5")
+          console.log(cellCheck);
+          //returns true
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="bb26ToDecimal">
+          <div class="card-content">
+            <h2 class="card-title">
+              bb26ToDecimal(input: string): number
+            </h2>
+            <p class="code-description">
+              The bb26ToDecimal function returns a decimal number equivalent to
+              the bijective base-26 number upper case letter string input
+            </p>
+            <div class="code-container">
+              <pre class="prettyprint code-block">
+import bb26ToDecimal from 'bb26-spreadsheet';
+
+let bb26ToDecimalResult = bb26ToDecimal("Z");
+
+console.log(bb26ToDecimalResult);
+//returns 26 
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
