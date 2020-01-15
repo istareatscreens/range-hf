@@ -36,7 +36,7 @@
       <div id="navbar">
         <p class="nav-title">range-hf</p>
         <div class="nav-menu">
-          <a href="#delimRangeSpread"></a>delimRangeSpread</a>
+          <a href="#delimRangeSpread">delimRangeSpread</a>
           <a href="#rangeSpread">rangeSpread</a>
           <a href="#isInRange">isInRange</a>
         </div>
@@ -46,12 +46,15 @@
       <div class="content-container">
         <div class="card" id="delimRangeSpread">
           <div class="card-content">
-            <h2 class="card-title">delimRangeSpread(input: string, deliminater: string = ",":): string[]</h2>
+            <h2 class="card-title">
+              delimRangeSpread(input: string, deliminater: string = ","):
+              string[]
+            </h2>
             <p class="code-description">
-              The delimRangeSpread function takes in a deliminated string
-              of ranges and cells and returns an unique member array of all cells
-               and cells associated with ranges provided by the input. The delimiter defaults to "," 
-               but can be specified.
+              The delimRangeSpread function takes in a deliminated string of
+              ranges and cells and returns an unique member array of all cells
+              and cells associated with ranges provided by the input. The
+              delimiter defaults to "," but can be specified.
             </p>
             <div class="code-container">
               <pre class="prettyprint code-block">
@@ -65,15 +68,17 @@ console.log(arrayOfCells);
 console.log(arrayOfCellsWDelim);
 //returns ["A2", "A3", "B2", "B3", "C3"]
 
-  </pre>
+  </pre
+              >
             </div>
           </div>
         </div>
         <div class="card" id="rangeSpread">
           <div class="card-content">
-            <h2 class="card-title">rangeSpread(input: string): string</h2>
+            <h2 class="card-title">rangeSpread(input: string): string[]</h2>
             <p class="code-description">
-              The rangeSpread function returns an array of strings representing all member cells of a range
+              The rangeSpread function returns an array of strings representing
+              all member cells of a range
             </p>
             <div class="code-container">
               <pre class="prettyprint code-block">
@@ -92,7 +97,8 @@ console.log(spreadRange);
               isInRange(cell: string, range: string): boolean
             </h2>
             <p class="code-description">
-              The isInRange function checks to see if a cell is a member of a range
+              The isInRange function checks to see if a cell is a member of a
+              range
             </p>
             <div class="code-container">
               <pre class="prettyprint code-block">
