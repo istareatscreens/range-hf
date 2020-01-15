@@ -1,7 +1,7 @@
 import { bb26ToDecimal } from "bb26-spreadsheet";
 
 /**
- * Checks to see if a Cell exists in a range
+ * Checks to see if a cell exists in a range
  * @param cell {string} cell address i.e. "A1"
  * @param range {string} range address i.e. "A1:A2"
  * @returns {boolean} true or false

@@ -1,7 +1,7 @@
 import rangeSpread from "./rangeSpread";
 
 /**
- * returns all cells associated with a delimited string in spreadsheet notation
+ * returns all cells in an array of strings associated with a delimited string in spreadsheet notation
  * @param {string} address delimited string containing cell and range addresses i.e "A1, A1:AC33"
  * @param {string} delimiter "custom delimiter, defaults to delimiter = ","
  * @return {string[] | string} returns an array of cells
