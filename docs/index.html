@@ -62,8 +62,8 @@ import delimRangeSpread from 'range-hf';
 
 let arrayOfCells = delimRangeSpread("A2:B3|C3", "|");
 let arrayOfCellsWDelim = delimRangeSpread("AA1, A2:B3, C3, C2:C4");
-console.log(arrayOfCells);
 
+console.log(arrayOfCells);
 //returns ["AA1", "A2", "A3", "B2", "B3", "C3", "C2", "C4"];
 console.log(arrayOfCellsWDelim);
 //returns ["A2", "A3", "B2", "B3", "C3"]
@@ -85,6 +85,7 @@ console.log(arrayOfCellsWDelim);
 import rangeSpread from 'range-hf';
 
 let spreadRange = rangeSpread("Z1:AA2");
+
 console.log(spreadRange);
 //returns ["Z1", "Z2", "AA1", "AA2"]
               </pre>
@@ -102,9 +103,10 @@ console.log(spreadRange);
             </p>
             <div class="code-container">
               <pre class="prettyprint code-block">
-          import isInRange from 'bb26-spreadsheet';
+          import isInRange from 'range-hf';
 
           let cellCheck = isInRange("C1", "A1:D5")
+
           console.log(cellCheck);
           //returns true
               </pre>
