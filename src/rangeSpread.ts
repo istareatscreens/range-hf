@@ -71,6 +71,7 @@ function range(start: number, end: number): number[] {
   if (!end) {
     end = start;
     start = 1;
+    // eslint-disable-next-line no-empty
   } else {
   }
   for (let i = start; i < end + 1; i += 1) {
