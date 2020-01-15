@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/istareatscreens/range-hf.svg?branch=master)](https://travis-ci.com/istareatscreens/range-hf)[![codecov](https://codecov.io/gh/istareatscreens/range-hf/branch/master/graph/badge.svg)](https://codecov.io/gh/istareatscreens/range-hf)
 
-# Spreadsheet Range helper functions
+# Range helper functions for spreadsheets
 
 JavaScript utilities for the purpose of simplifying manipulation of cells and ranges in spreadsheet software (i.e. Excel).
 
