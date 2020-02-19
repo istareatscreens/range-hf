@@ -13,6 +13,8 @@ script:
 branches:
   only:
     - master
+    - /^renovate.*$/
+
 
 notifications:
   email: false
