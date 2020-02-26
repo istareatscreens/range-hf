@@ -15,6 +15,5 @@ branches:
     - master
     - /^renovate.*$/
 
-
 notifications:
   email: false
