@@ -54,6 +54,5 @@ function returnIndividualCells(address: string | string[]): string | string[] {
  * @returns {string[]} returns array of cells
  */
 function delineateAddress(address: string, delimiter: string) {
-  let pattern = new RegExp("\\" + delimiter + "\\s*");
-  return address.split(pattern);
+  return address.split(new RegExp("\\" + delimiter + "\\s*"));
 }

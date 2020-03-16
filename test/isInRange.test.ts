@@ -26,6 +26,14 @@ describe("delimRangeSpread", () => {
   });
 
   test("Should work with range", () => {
+    expect(isInRange("A4", "A3:A2")).toBeFalsy();
+  });
+
+  test("Should work with range", () => {
+    expect(isInRange("A1", "A3:A2")).toBeFalsy();
+  });
+
+  test("Should work with range", () => {
     expect(isInRange("AA11", "AAA10:AAA12")).toBeFalsy();
   });
 
