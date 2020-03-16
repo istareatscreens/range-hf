@@ -1,4 +1,5 @@
 import { bb26Range } from "bb26-spreadsheet";
+import { splitLetterNumbers } from "./utilityFunctions";
 /**
  * Takes in a range of cells in the form of a string and returns an array of strings containing each cell in the range
  * @param {string} address Spreadsheet range in range format i.e. "A1:B2"
@@ -7,9 +8,8 @@ import { bb26Range } from "bb26-spreadsheet";
  * @example rangeSpread("C"); //returns ["A", "B", "C"]
  */
 export default function rangeSpread(address: string): string[] {
-  address = address.replace(/\s/g, "");
-  //splits array into components Letter/Numbers\
-  let addressSplit: string[] = address.match(/[a-zA-Z]+|[0-9]+/g)!;
+  //splits array into components Letter/Numbers
+  let addressSplit: string[] = splitLetterNumbers(address.replace(/\s/g, ""));
   //adds letter array to number array to produce all cells associated with range
   return alphanumericRecomposition(
     addressSplit[0] !== addressSplit[2]
@@ -71,8 +71,6 @@ function range(start: number, end: number): number[] {
   if (!end) {
     end = start;
     start = 1;
-    // eslint-disable-next-line no-empty
-  } else {
   }
   for (let i = start; i < end + 1; i += 1) {
     total.push(i);

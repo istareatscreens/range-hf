@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "lib": ["es6", "es2019.array"],
+    "lib": ["es6", "es2019.array", "DOM"],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,

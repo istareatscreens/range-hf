@@ -1,4 +1,7 @@
-import { bb26ToDecimal } from "bb26-spreadsheet";
+import { bb26Compare } from "bb26-spreadsheet";
+import { splitLetterNumbers } from "./utilityFunctions";
+
+type SPLITADDRESS = (string | number)[];
 
 /**
  * Checks to see if a cell exists in a range
@@ -8,37 +11,23 @@ import { bb26ToDecimal } from "bb26-spreadsheet";
  * @example isInRange("A2", "A1:B10") //returns true
  */
 export default function isInRange(cell: string, range: string): boolean {
-  let splitCell: string[] = splitLetterNumbers(cell);
-  let splitRange: string[] = splitLetterNumbers(range);
+  let splitCell: SPLITADDRESS = splitLetterNumbers(cell);
+  let splitRange: SPLITADDRESS = splitLetterNumbers(range);
+  let bb26comparison: number[] = [
+    bb26Compare(<string>splitCell[0], <string>splitRange[0]),
+    bb26Compare(<string>splitCell[0], <string>splitRange[2])
+  ];
 
   return (
-    compare(bb26ToDecimal(splitCell[0]), [
-      bb26ToDecimal(splitRange[0]),
-      bb26ToDecimal(splitRange[2])
-    ]) &&
-    compare(Number(splitCell[1]), [
-      Number(splitRange[1]),
-      Number(splitRange[3])
-    ])
+    //Check Letters
+    !(
+      (bb26comparison[0] === 2 && bb26comparison[1] === 2) ||
+      (bb26comparison[0] === 1 && bb26comparison[1] === 1)
+    ) &&
+    //Check Numbers
+    ((Number(splitCell[1]) >= splitRange[1] &&
+      Number(splitCell[1]) <= splitRange[3]) ||
+      (Number(splitCell[1]) >= splitRange[3] &&
+        Number(splitCell[1]) <= splitRange[1]))
   );
-}
-
-/**
- * Takes in a number and determines if it exists in a range
- * @param index {number} lookup number
- * @param range {number[]} lookup numbers in range
- * @returns {boolean} true/false
- */
-function compare(index: number, range: number[]): boolean {
-  if (index >= range[0] && index <= range[1] && range[1] >= range[0]) {
-    return true;
-  } else if (index >= range[1] && index <= range[0] && range[0] >= range[1]) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function splitLetterNumbers(address: string): string[] {
-  return address.match(/[a-zA-Z]+|[0-9]+/g)!;
 }
