@@ -9,7 +9,7 @@ import { splitLetterNumbers } from "./utilityFunctions";
  */
 export default function rangeSpread(address: string): string[] {
   //splits array into components Letter/Numbers
-  let addressSplit: string[] = splitLetterNumbers(address.replace(/\s/g, ""));
+  const addressSplit: string[] = splitLetterNumbers(address.replace(/\s/g, ""));
   //adds letter array to number array to produce all cells associated with range
   return alphanumericRecomposition(
     addressSplit[0] !== addressSplit[2]
@@ -51,12 +51,12 @@ function getalphaNumbericRecomposition(
   let temp = [];
   for (let i = 0; i < arr1.length; i++) {
     temp.push(
-      (arr2 as Array<number | string>).map(element =>
+      (arr2 as Array<number | string>).map((element) =>
         swap ? "" + arr1[i] + element : "" + element + arr1[i]
       )
     );
   }
-  return temp.flat(Infinity);
+  return <string[]>temp.flat(Infinity);
 }
 
 /**

@@ -11,11 +11,11 @@ type SPLITADDRESS = (string | number)[];
  * @example isInRange("A2", "A1:B10") //returns true
  */
 export default function isInRange(cell: string, range: string): boolean {
-  let splitCell: SPLITADDRESS = splitLetterNumbers(cell);
-  let splitRange: SPLITADDRESS = splitLetterNumbers(range);
-  let bb26comparison: number[] = [
+  const splitCell: SPLITADDRESS = splitLetterNumbers(cell);
+  const splitRange: SPLITADDRESS = splitLetterNumbers(range);
+  const bb26comparison: number[] = [
     bb26Compare(<string>splitCell[0], <string>splitRange[0]),
-    bb26Compare(<string>splitCell[0], <string>splitRange[2])
+    bb26Compare(<string>splitCell[0], <string>splitRange[2]),
   ];
 
   return (
