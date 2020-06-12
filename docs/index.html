@@ -19,7 +19,7 @@
     />
     <script>
       var prevScrollpos = window.pageYOffset;
-      window.onscroll = function() {
+      window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;
         if (prevScrollpos > currentScrollPos) {
           document.getElementById("navbar").style.top = "0";
@@ -39,6 +39,7 @@
           <a href="#delimRangeSpread">delimRangeSpread</a>
           <a href="#rangeSpread">rangeSpread</a>
           <a href="#isInRange">isInRange</a>
+          <a href="#randomCell">randomCell</a>
         </div>
       </div>
 
@@ -108,6 +109,26 @@ let cellCheck = isInRange("C1", "A1:D5")
 
 console.log(cellCheck);
 //returns true
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="randomCell">
+          <div class="card-content">
+            <h2 class="card-title">
+              randomCell(range: string): string
+            </h2>
+            <p class="code-description">
+              Generates a random cell as a string from a given range inclusively
+            </p>
+            <div class="code-container">
+              <pre class="prettyprint code-block">
+import randomCell from 'range-hf';
+
+let randomCell = randomCell("A1:D5")
+
+console.log(randomCell);
+//returns random cell in the range "A1:D5" inclusive e.g. "B1"
               </pre>
             </div>
           </div>
