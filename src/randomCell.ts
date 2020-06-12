@@ -8,17 +8,20 @@ import { splitLetterNumbers } from "./utilityFunctions";
  * @example isInRange("A1:B10") //returns B5
  */
 export default function randomCell(range: string): string {
-  const splitRange: string[] = splitLetterNumbers(range);
+  const splitRange: number[] | string[] = <string[] | number[]>(
+    splitLetterNumbers(range)
+  );
+  splitRange[1] = Number.parseInt(<string>splitRange[1]);
+  splitRange[3] = Number.parseInt(<string>splitRange[3]);
+
   return (
-    bb26Random(splitRange[0], splitRange[2]) +
+    bb26Random(<string>splitRange[0], <string>splitRange[2]) +
     (Math.ceil(
       Math.random() *
-        (Number.parseInt(splitRange[1]) > Number.parseInt(splitRange[3])
-          ? Number.parseInt(splitRange[1]) - Number.parseInt(splitRange[3])
-          : Number.parseInt(splitRange[3]) - Number.parseInt(splitRange[1]))
+        (splitRange[1] > splitRange[3]
+          ? splitRange[1] - splitRange[3]
+          : splitRange[3] - splitRange[1])
     ) +
-      (Number.parseInt(splitRange[1]) > Number.parseInt(splitRange[3])
-        ? Number.parseInt(splitRange[3])
-        : Number.parseInt(splitRange[1])))
+      (splitRange[1] > splitRange[3] ? splitRange[3] : splitRange[1]))
   );
 }

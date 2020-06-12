@@ -9,7 +9,9 @@ import { splitLetterNumbers } from "./utilityFunctions";
  */
 export default function rangeSpread(address: string): string[] {
   //splits array into components Letter/Numbers
-  const addressSplit: string[] = splitLetterNumbers(address.replace(/\s/g, ""));
+  const addressSplit: string[] = <string[]>(
+    splitLetterNumbers(address.replace(/\s/g, ""))
+  );
   //adds letter array to number array to produce all cells associated with range
   return alphanumericRecomposition(
     addressSplit[0] !== addressSplit[2]
