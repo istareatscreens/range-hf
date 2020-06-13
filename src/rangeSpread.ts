@@ -1,5 +1,5 @@
 import { bb26Range } from "bb26-spreadsheet";
-import { splitLetterNumbers } from "./utilityFunctions";
+import { splitLetterNumbers } from "./splitRange";
 /**
  * Takes in a range of cells in the form of a string and returns an array of strings containing each cell in the range
  * @param {string} address Spreadsheet range in range format i.e. "A1:B2"
@@ -32,9 +32,9 @@ function alphanumericRecomposition(
   numArr: string[] | number[]
 ): string[] {
   if (letArr.length > numArr.length) {
-    return getalphaNumbericRecomposition(numArr, letArr, false);
+    return getalphaNumericRecomposition(numArr, letArr, false);
   } else {
-    return getalphaNumbericRecomposition(letArr, numArr, true);
+    return getalphaNumericRecomposition(letArr, numArr, true);
   }
 }
 
@@ -45,7 +45,7 @@ function alphanumericRecomposition(
  * @param {boolean} swap used to correct for larger array
  * @returns {string[]} returns array of cell addresses
  */
-function getalphaNumbericRecomposition(
+function getalphaNumericRecomposition(
   arr1: number[] | string[],
   arr2: number[] | string[],
   swap: boolean
@@ -58,7 +58,7 @@ function getalphaNumbericRecomposition(
       )
     );
   }
-  return <string[]>temp.flat(Infinity);
+  return <string[]>flatten(temp);
 }
 
 /**
@@ -78,4 +78,23 @@ function range(start: number, end: number): number[] {
     total.push(i);
   }
   return total;
+}
+
+/**
+ * returns a nest array as a flat array
+ * @param {any} arr a nested array to be flattened
+ * @param {any} result flattened array
+ * @returns {any[]} returns a flat array from a nested array
+ * @example [1,[3,[4]], [4]] //returns [1,3,4,4]
+ */
+function flatten(arr: any, result: any = []): any[] {
+  for (let i = 0, length = arr.length; i < length; i++) {
+    const value = arr[i];
+    if (Array.isArray(value)) {
+      flatten(value, result);
+    } else {
+      result.push(value);
+    }
+  }
+  return result;
 }

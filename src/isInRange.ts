@@ -1,5 +1,5 @@
 import { bb26Compare } from "bb26-spreadsheet";
-import { splitLetterNumbers } from "./utilityFunctions";
+import { splitLetterNumbers } from "./splitRange";
 
 type SPLITADDRESS = (string | number)[];
 

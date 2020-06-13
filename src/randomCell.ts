@@ -1,5 +1,5 @@
 import { bb26Random } from "bb26-spreadsheet";
-import { splitLetterNumbers } from "./utilityFunctions";
+import { splitLetterNumbers } from "./splitRange";
 
 /**
  * Generates a random cell from given range inclusively
