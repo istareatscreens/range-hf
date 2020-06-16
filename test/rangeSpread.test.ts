@@ -21,8 +21,24 @@ describe("rangeSpread", () => {
     expect(new Set(rangeSpread("B2:B2"))).toEqual(new Set(["B2"]));
 
     expect(new Set(rangeSpread("B9:B9"))).toEqual(new Set(["B9"]));
-    expect(new Set(rangeSpread("A5"))).toEqual(
-      new Set(["A1", "A2", "A3", "A4", "A5"])
+    expect(new Set(rangeSpread("C5"))).toEqual(
+      new Set([
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+      ])
     );
     //testing white space
     expect(new Set(rangeSpread(" A5"))).toEqual(
@@ -56,10 +72,10 @@ describe("rangeSpread", () => {
         "B7",
         "B8",
         "B9",
-        "B10"
+        "B10",
       ])
     );
-
+    expect(() => rangeSpread("ED3A3JK2")).toThrow(TypeError);
     expect(new Set(rangeSpread("ABC9:ACC10"))).toEqual(
       new Set([
         "ABC9",
@@ -115,7 +131,7 @@ describe("rangeSpread", () => {
         "ABZ10",
         "ACA10",
         "ACB10",
-        "ACC10"
+        "ACC10",
       ])
     );
   });

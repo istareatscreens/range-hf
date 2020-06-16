@@ -1,5 +1,6 @@
 import { bb26Random } from "bb26-spreadsheet";
 import { splitLetterNumbers } from "./splitRange";
+import { isValidSplitAddress } from "./isValidAddress";
 
 /**
  * Generates a random cell from given range inclusively
@@ -11,6 +12,9 @@ export default function randomCell(range: string): string {
   const splitRange: number[] | string[] = <string[] | number[]>(
     splitLetterNumbers(range)
   );
+
+  isValidSplitAddress(splitRange);
+
   splitRange[1] = Number.parseInt(<string>splitRange[1]);
   splitRange[3] = Number.parseInt(<string>splitRange[3]);
 

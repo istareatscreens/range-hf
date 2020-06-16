@@ -1,7 +1,6 @@
 import { bb26Compare } from "bb26-spreadsheet";
 import { splitLetterNumbers } from "./splitRange";
-
-type SPLITADDRESS = (string | number)[];
+import { rowCheck } from "./isValidAddress";
 
 /**
  * Checks to see if a cell exists in a range
@@ -11,8 +10,13 @@ type SPLITADDRESS = (string | number)[];
  * @example isInRange("A2", "A1:B10") //returns true
  */
 export default function isInRange(cell: string, range: string): boolean {
-  const splitCell: SPLITADDRESS = splitLetterNumbers(cell);
-  const splitRange: SPLITADDRESS = splitLetterNumbers(range);
+  const splitCell: string[] | number[] = splitLetterNumbers(cell);
+  const splitRange: string[] | number[] = splitLetterNumbers(range);
+
+  rowCheck(splitRange[1]);
+  rowCheck(splitRange[3]);
+  rowCheck(splitCell[1]);
+
   const bb26comparison: number[] = [
     bb26Compare(<string>splitCell[0], <string>splitRange[0]),
     bb26Compare(<string>splitCell[0], <string>splitRange[2]),

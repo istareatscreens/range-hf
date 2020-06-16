@@ -1,17 +1,21 @@
 import { bb26Range } from "bb26-spreadsheet";
 import { splitLetterNumbers } from "./splitRange";
+import { rowCheck } from "./isValidAddress";
 /**
  * Takes in a range of cells in the form of a string and returns an array of strings containing each cell in the range
  * @param {string} address Spreadsheet range in range format i.e. "A1:B2"
  * @returns {string[]} string array containing cells associated with input cell i.e. ["A1", "A2", "B1", "B2"]
  * @example rangeSpread("A1:B2"); //returns ["A1", "A2", "B1", "B2"]
- * @example rangeSpread("C"); //returns ["A", "B", "C"]
+ * @example rangeSpread("C1"); //returns ["A1", "B1", "C1"]
  */
 export default function rangeSpread(address: string): string[] {
   //splits array into components Letter/Numbers
   const addressSplit: string[] = <string[]>(
     splitLetterNumbers(address.replace(/\s/g, ""))
   );
+
+  hasValidRows(addressSplit);
+
   //adds letter array to number array to produce all cells associated with range
   return alphanumericRecomposition(
     addressSplit[0] !== addressSplit[2]
@@ -19,6 +23,22 @@ export default function rangeSpread(address: string): string[] {
       : [addressSplit[0]],
     range(Number(addressSplit[1]), Number(addressSplit[3]))
   );
+}
+
+//Checks validity of rows
+function hasValidRows(addressSplit: string[]): void {
+  switch (addressSplit.length) {
+    //check range
+    case 4:
+      rowCheck(addressSplit[3]);
+    //check cell
+    // eslint-disable-next-line no-fallthrough
+    case 2:
+      rowCheck(addressSplit[1]);
+      break;
+    default:
+      throw new TypeError("Invalid input of" + addressSplit);
+  }
 }
 
 /**

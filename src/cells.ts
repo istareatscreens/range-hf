@@ -1,4 +1,5 @@
 import { decimalTobb26, isValidbb26 } from "bb26-spreadsheet";
+import { rowCheck } from "./isValidAddress";
 
 /**
  * Returns a string corrosponding to a cell value given a row number, and column number or if
@@ -27,10 +28,4 @@ export default function cells(
       ? column
       : decimalTobb26(parseInt(column))) + rowCheck(row)
   );
-}
-
-function rowCheck(row: string | number): number {
-  if (typeof row == "string") row = <number>parseInt(<string>row);
-  if (row > 0 && !isNaN(row)) return <number>row;
-  else throw new TypeError("Invalid row entry of " + row);
 }
