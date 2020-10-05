@@ -38,7 +38,7 @@
     "handlebars": "4.7.6",
     "jest": "26.4.2",
     "prettier": "2.1.2",
-    "ts-jest": "26.4.0",
+    "ts-jest": "26.4.1",
     "ts-node": "8.10.2",
     "typescript": "3.9.7"
   }
