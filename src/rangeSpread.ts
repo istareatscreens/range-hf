@@ -70,7 +70,7 @@ function getalphaNumericRecomposition(
   arr2: number[] | string[],
   swap: boolean
 ): string[] {
-  let temp = [];
+  const temp = [];
   for (let i = 0; i < arr1.length; i++) {
     temp.push(
       (arr2 as Array<number | string>).map((element) =>
@@ -89,7 +89,7 @@ function getalphaNumericRecomposition(
  * @example range(1,5) //returns 1,2,3,4,5
  */
 function range(start: number, end: number): number[] {
-  let total: number[] = [];
+  const total: number[] = [];
   if (!end) {
     end = start;
     start = 1;

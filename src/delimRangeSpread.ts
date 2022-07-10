@@ -26,10 +26,10 @@ export default function delimRangeSpread(
   } else if (address.includes(delimiter)) {
     return delineateAddress(address, delimiter);
     //address includes just delimiation
-  } else {
-    //single cell address
-    return [address];
   }
+
+  //single cell address
+  return [address];
 }
 /**
  * returns array of all cells, if array contains just a cell returns cell
@@ -39,12 +39,11 @@ export default function delimRangeSpread(
 
 function returnIndividualCells(address: string | string[]): string | string[] {
   if (Array.isArray(address)) {
-    return address.flatMap(range =>
+    return address.flatMap((range) =>
       !range.includes(":") ? range : rangeSpread(range)
     );
-  } else {
-    return rangeSpread(address);
   }
+  return rangeSpread(address);
 }
 
 /**

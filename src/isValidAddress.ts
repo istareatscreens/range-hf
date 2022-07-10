@@ -26,7 +26,7 @@ export function isValidSplitAddress(
     }
   } catch (error) {
     if (suppressError) return false;
-    throw new TypeError(error);
+    throw error;
   }
 }
 
