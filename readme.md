@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/istareatscreens/range-hf.svg?branch=master)](https://travis-ci.com/istareatscreens/range-hf)[![codecov](https://codecov.io/gh/istareatscreens/range-hf/branch/master/graph/badge.svg)](https://codecov.io/gh/istareatscreens/range-hf)
+[![Build Status](https://app.travis-ci.com/istareatscreens/range-hf.svg?branch=master)](https://travis-ci.com/istareatscreens/range-hf)[![codecov](https://codecov.io/gh/istareatscreens/range-hf/branch/master/graph/badge.svg)](https://codecov.io/gh/istareatscreens/range-hf)
 
 # Range helper functions for spreadsheets
 
