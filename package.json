@@ -1,6 +1,6 @@
 {
   "name": "range-hf",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "JavaScript utilities for the purpose of simplifying manipulation of cells and ranges in spreadsheet software (i.e. Excel).",
   "main": "lib/index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/istareatscreens/range-hf#readme",
   "dependencies": {
-    "bb26-spreadsheet": "^1.5.2"
+    "bb26-spreadsheet": "^1.6.0"
   },
   "devDependencies": {
     "@types/jest": "28.1.4",
